@@ -16,6 +16,18 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    songs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Song'
+      }
+    ],
+    artists: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Artist'
+      }
+    ]
   },
   {
     timestamps: true,
