@@ -1,0 +1,752 @@
+body {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom, #121e3d 0%, #000 100%);
+}
+
+/* innovation using a google font family */
+
+body {
+  font-family: 'ABeeZee';
+  position: fixed;
+  overflow-y: scroll;
+}
+/* Style the header */
+.header {
+  grid-area: header;
+  /* background-color: #f1f1f1; */
+  /* text-align: center; */
+  font-size: 35px;
+  position: relative;
+  margin-bottom: -20px;
+  display: inline-block;
+  vertical-align: center;
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+
+/* header items */
+.home {
+  width: auto;
+  height: 70px;
+  border-radius: 100%;
+  position: absolute;
+  top: 15%;
+}
+
+.linkColor {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+
+#logo-name {
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.favorites {
+  position: absolute;
+  left: 170px;
+  top: 30%;
+}
+
+.white-color {
+  color: white;
+}
+
+.searching {
+  display: flex;
+}
+
+/* .searchBar{
+  position: absolute;
+  color: black;
+  width: 100%;
+  top: 100%;
+  left: 50%;
+} */
+.nav-icons i {
+  font-size: 20px;
+  color: white;
+}
+
+/* innovation#01: animated search bar */
+
+.searchBar input[type="text"], textarea {
+  background-image: linear-gradient(to bottom, #121e3d 0%, #000 100%);
+  margin: 0px;
+  border: 0px;
+  position: absolute;
+  width: 10rem;
+  top: 10px;
+  right: 240px;
+  color: white;
+  height: 20px;
+  border: none;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.searchBar input[type="text"]:focus{
+  width: 50%;
+}
+
+#search {
+  position: absolute;
+  top: 1px;
+  right: 405px;
+}
+
+#record {
+  position: absolute;
+  right: 220px;
+  top: 1px;
+}
+
+#noti {
+  position: absolute;
+  top: 7px;
+  right: 80px;
+}
+
+#profile {
+  position: absolute;
+  top: 7px;
+  right: 40px;
+}
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-areas:
+    'header header header header header header'
+    'middle middle middle middle middle right'
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; - if you want gap between the columns */
+}
+
+.left,
+.middle,
+.right {
+  /* padding: 10px; */
+  height: 500px;
+  /* Should be removed. Only for demonstration */
+}
+
+/* Style the left column */
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+/* style the carousel menu */
+.carousel {
+  position: relative;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+  margin-top: 26px;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-open:checked+.carousel-item {
+  position: static;
+  opacity: 100;
+}
+
+.carousel-item {
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+}
+
+.carousel-item img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.carousel-control {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  font-size: 40px;
+  height: 40px;
+  line-height: 35px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  cursor: pointer;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  text-align: center;
+  width: 40px;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 2%;
+}
+
+.carousel-control.next {
+  right: 2%;
+}
+
+.carousel-control:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #aaaaaa;
+}
+
+#carousel-1:checked~.control-1,
+#carousel-2:checked~.control-2,
+#carousel-3:checked~.control-3 {
+  display: block;
+}
+
+.carousel-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.carousel-bullet {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 35px;
+}
+
+.carousel-bullet:hover {
+  color: #aaaaaa;
+}
+
+#carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+  color: #428bca;
+}
+
+#title {
+  width: 100%;
+  position: absolute;
+  padding: 0px;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 27px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Open Sans', sans-serif;
+  z-index: 9999;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+
+.lat-release {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.lat-release>div {
+  flex: 0 50%;
+}
+
+/* .pos{
+  position: absolute;
+  left: 20%;
+} */
+.popularArt {}
+
+.artists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start
+}
+
+.artist {
+  margin-right: -30px;
+}
+
+.artist-image {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  vertical-align: middle;
+}
+
+figcaption {
+  color: grey;
+}
+
+/* Stations styling */
+.stations {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.station-banner {
+  height: 100px;
+  width: 100px;
+  vertical-align: middle;
+}
+
+.details {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.diff-color {
+  background-image: radial-gradient(sienna, rgb(65, 52, 52))
+}
+
+ !important;
+
+.stations2 {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.genre {
+  margin-right: -30px
+}
+
+.diff-image {
+  height: 150px;
+  width: 200px;
+  vertical-align: middle;
+}
+
+/* style the carousel menu */
+/* style the latestEnglish section */
+.latestEnglish {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  /* flex-wrap: wrap; */
+  /* overflow: hidden; */
+  /* justify-content: flex-start; */
+}
+
+.late-eng {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  /* overflow: hidden; */
+  justify-content: flex-start;
+}
+
+.latest {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.lat-image {
+  height: 100px;
+  width: 100px;
+}
+
+.song-name {
+  margin-top: -10px;
+  margin-left: 40px;
+}
+
+.date {
+  font-size: 10px;
+  margin-left: 40px;
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+  width: 30vw;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.song-queue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.songnm {
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.queue-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* style the dropdown menu */
+.dropbtn {
+  background-image: linear-gradient(to bottom, #121e3d 0%, #000 100%);
+  color: white;
+  padding: 1px;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content .drop-again {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content .drop-again:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+
+.timespan{
+  font-size: 20px;
+  margin-left: 60px;
+}
+/* .song-number{
+  justify-content: center;
+  text-align: center;
+} */
+.song {
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+  /* justify-content: space-around; */
+}
+
+.queue-image {
+  height: 80px;
+  width: 80px;
+}
+.queue-image-recents {
+  height: 60px;
+  width: 60px;
+}
+
+.like {
+  color: white;
+  font-size: 15px;
+  margin-right: 40px;
+  vertical-align: middle;
+  margin-top: 15px;
+}
+
+.dropdown{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the footer */
+.footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  grid-area: footer;
+  background-color: #f1f1f1;
+  /* padding: 10px; */
+  text-align: center;
+  /* min-width: 100%; */
+}
+
+.foot {
+  height: 90px;
+  width: 20px;
+}
+
+#bar {
+  margin-top: 10px;
+  margin-left: 100px;
+  color: white;
+  margin-right: 60px;
+}
+
+.player-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.play {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  justify-content: center;
+}
+
+.centre-player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.side-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.sides {
+  margin-left: 10px;
+}
+
+/* homepage2 styling */
+.qwerty {
+  display: flex;
+  flex-direction: column;
+}
+
+.art-img {
+  height: 0px;
+  width: 200px;
+}
+
+.im-image {
+  height: 1000px;
+  width: 200px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.myBtn{
+  width: 100%;
+}
+.playlist-input{
+  width: 100%;
+  border: none;
+}
+
+/* bouncing animation */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animated.delay-1s {
+  animation-delay: 1s;
+}
+
+@keyframes bounceInUp {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* styling recently played */
+
+.songnm-recents {
+  margin-top: 10px;
+}
+
+
+.bounceInUp {
+  animation-name: bounceInUp;
+}
+
+.song {
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+  /* justify-content: space-around; */
+}
+
+/* /bouncing animation */
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+/* @media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas:
+      'header header header header header header'
+      'middle middle middle right right right'
+      'footer footer footer footer footer footer';
+  }
+} */
+
+@media screen and (max-width: 800px) {
+  .middle, .right {
+    width: 100vw;
+    /* padding: 0; */
+  }
+}
+@media only screen and (max-width: 800px) {
+  #logo-name {
+    font-size: 15px;
+    margin-top: 40px;
+  }
+
+  .searchBar {
+    margin: 100px;
+  }
+}

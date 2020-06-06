@@ -1,7 +1,20 @@
-<header>
-  Page Header
+<!DOCTYPE html>
+<html>
 
-  <ul>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styling.css">
+  <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/homepage.css" />
+  <title>homepage</title>
+</head>
+
+<header>
+
+  <!-- <ul>
     <% if (locals.user){ %>
     <li><%= user.name %></li>
     <li>
@@ -25,5 +38,36 @@
     </li>
 
     <% } %>
-  </ul>
+  </ul> -->
+  <div class="header">
+    <div class="logo">
+      <a href="#">
+        <div><img src="images/MusicLogo.jpg" alt="default" class="home">
+        </div>
+        <div class="white-color" id="logo-name">
+          &nbsp;Ninjas<br>&nbsp;Studio
+        </div>
+      </a>
+    </div>
+    <span class="favorites">
+      <a href="#" class="linkColor">Favorites</a>
+    </span>
+    <div class="searching">
+      <div class="nav-icons" id="search"><a href="#"><i class="fas fa-search"></i></a></div>
+      <div class="searchBar">
+        <input type="text" name="search" placeholder="search" class="w">
+      </div>
+      <div class="nav-icons" id="record"><a href="#"><i class="fas fa-microphone"></i></a></div>
+    </div>
+    <span class="nav-icons" id="noti">
+      <a href="#"><i id="noti" class="fas fa-bell"></i></a>
+    </span>
+    <span class="nav-icons" id="profile">
+      <a href=""><i id="profile" class="fas fa-user-circle"></i></a>
+    </span>
+  </div>
+
 </header>
+
+
+</html>

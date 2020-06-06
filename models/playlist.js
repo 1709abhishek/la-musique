@@ -11,12 +11,12 @@ const playlistSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
     // include the array of ids of all options in this questionSchema itself
     songs: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Option'
+            ref: 'Song'
         }
     ]
 }, {

@@ -1,10 +1,18 @@
 
 const User = require("../models/user");
 const jwt = require('jsonwebtoken');
+const Song = require('../models/song');
+const Playlist = require('../models/playlist');
+const Queue = require('../models/queue');
 
-module.exports.profile = function (req, res) {
+module.exports.profile = async function (req, res) {
+  var songs = await Song.find({});
+  var playlists = await Playlist.find({});
+  console.log(songs);
   return res.render("user_profile", {
     title: "User Profile",
+    songs: songs,
+    playlists: playlists
   });
 };
 
@@ -60,6 +68,10 @@ module.exports.create = function (req, res) {
       newUser.name = req.body.name;
       newUser.password = newUser.generateHash(req.body.password);
 
+      // making a queue for each user at the time of creating the user.
+      var queue = new Queue();
+      queue.user = newUser.id;
+
       User.create(newUser, function (err, user) {
         if (err) {
           console.log("error in creating user while signing up");
@@ -78,9 +90,8 @@ module.exports.create = function (req, res) {
 
 // sign in and create a session for the user
 module.exports.createSession = function (req, res) {
-  // if (!req.recaptcha.error) {
+  console.log(req.user._id);
   return res.redirect("./profile");
-  // }
 };
 
 module.exports.destroySession = function (req, res) {

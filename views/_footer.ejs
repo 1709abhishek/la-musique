@@ -1,3 +1,84 @@
-<footer>
-    Page Footer
-</footer>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="/css/layout.css" />
+    <%- style %>
+</head>
+
+<div class="footer" style="background-color:#242526;">
+    <div class="player-content">
+        <div class="song-queue foot">
+            <div class="song">
+                <div class="song-photo">
+                    <a>
+                        <figure>
+                            <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
+                                alt="saturday_nights" class="queue-image">
+                        </figure>
+                    </a>
+                </div>
+                <div class="songnm white-color">
+                    Saturday_nights<br>04/01/2020
+                </div>
+            </div>
+            <div class="like white-color">
+                <i class="far fa-heart"></i>
+            </div>
+            <div class="like white-color">
+                <i class="fas fa-redo-alt"></i>
+            </div>
+            <div class="centre-player">
+                <div class="play">
+                    <div class="btn white-color">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <div class="btn white-color">
+                        <i class="fas fa-step-backward"></i>
+                    </div>
+                    <div class="btn white-color">
+                        <i class="far fa-pause-circle"></i>
+                    </div>
+                    <div class="btn white-color">
+                        <i class="fas fa-step-forward"></i>
+                    </div>
+                    <div class="btn white-color">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                </div>
+                <div id="bar">
+                    <audio id="audio" controls>
+                        <source src="horse.ogg" type="audio/ogg">
+                        <source
+                            src="/Users/1709abhishek/Desktop/Major_project/images/Khalid, Kane Brown - Saturday Nights REMIX (Official Video).mp3"
+                            type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div class="side-controls">
+                <div class="white-color sides">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="white-color sides">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="white-color sides">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="white-color sides">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="white-color sides">
+                    <i class="fas fa-desktop"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

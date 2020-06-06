@@ -3,15 +3,10 @@ const mongoose = require('mongoose');
 //defining schema
 const queueSchema = new mongoose.Schema({
 
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
     // include the array of ids of all options in this questionSchema itself
     songs: [
         {
