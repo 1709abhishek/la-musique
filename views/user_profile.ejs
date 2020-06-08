@@ -35,7 +35,16 @@
         </a>
       </div>
       <span class="favorites">
-        <a href="/showFavorite" class="linkColor">Favorites</a>
+        <!-- <a href="/showFavorite" class="linkColor">Favorites</a> -->
+        <div class="dropdown" style="float:left;">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Favorites
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" href="/showFavorite">Songs</a></li>
+            <li><a tabindex="-1" href="/showFavorite">Artists</a></li>
+          </ul>
+        </div>
+      </span>
       </span>
       <span class="playl">
         <a href="/playlists/show" class="linkColor">Playlists</a>
@@ -73,13 +82,15 @@
               <div class="song-photo">
                 <a>
                   <figure>
-                    <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
-                      alt="saturday_nights" class="queue-image">
+                    <img src="/images/saturday_nights.jpg" alt="saturday_nights" class="queue-image">
                   </figure>
                 </a>
               </div>
               <div class="songnm white-color">
-                <%=s.name%><br>04/01/2020
+                <%=s.name%><br>04/01/2020<br>
+              </div>
+              <div class="songnm white-color">
+                <a href="/artist/info?name=<%=s.artist%>"><%=s.artist%></a><br>
               </div>
             </div>
             <div class="">

@@ -16,7 +16,7 @@ module.exports.fetch = function (req, res) {
   // Get postings from REST api.
   request({ url: BASE, json: true }, async function (err, r, tra) {
     if (err) {
-      next(err);
+      console.log(err);
       return;
     }
 
@@ -34,6 +34,7 @@ module.exports.fetch = function (req, res) {
         new_song.playcount = song.playcount;
         new_song.listener = song.listeners;
         new_song.url = song.url;
+        new_song.artist = song.artist.name;
         await new_song.save();
       }
 
@@ -45,6 +46,11 @@ module.exports.fetch = function (req, res) {
     //   title: "user page",
     //   songs: tra.tracks.track
     // })
+    return res.render('user_profile', {
+      title: "homepage",
+      songs: songs,
+      playlists: playlists
+    })
   });
 
 }

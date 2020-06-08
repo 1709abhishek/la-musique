@@ -20,6 +20,9 @@ const songSchema = new mongoose.Schema({
     url: {
         type: String
     },
+    artist: {
+        type: String
+    },
     favorites: [
         {
             type: mongoose.Schema.Types.ObjectId,
