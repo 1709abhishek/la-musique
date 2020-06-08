@@ -25,9 +25,9 @@
 
   <div class="grid-container">
     <div class="header">
-      <!-- <div class="logo">
-        <a href="#">
-          <div><img src="images/MusicLogo.jpg" alt="default" class="home">
+      <div class="logo">
+        <a href="/users/profile">
+          <div><img src="/images/MusicLogo.jpg" alt="default" class="home">
           </div>
           <div class="white-color" id="logo-name">
             &nbsp;Ninjas<br>&nbsp;Studio
@@ -35,7 +35,13 @@
         </a>
       </div>
       <span class="favorites">
-        <a href="#" class="linkColor">Favorites</a>
+        <a href="/showFavorite" class="linkColor">Favorites</a>
+      </span>
+      <span class="playl">
+        <a href="/playlists/show" class="linkColor">Playlists</a>
+      </span>
+      <span class="queue-list">
+        <a href="/queue/showQueue" class="linkColor">Queue</a>
       </span>
       <div class="searching">
         <div class="nav-icons" id="search"><a href="#"><i class="fas fa-search"></i></a></div>
@@ -50,51 +56,52 @@
       <span class="nav-icons" id="profile">
         <a href=""><i id="profile" class="fas fa-user-circle"></i></a>
       </span>
-    </div> -->
+    </div>
 
 
-      <div class="middle">
+    <div class="middle">
 
-        <div class="latest">
+      <div class="latest">
 
-          <h3 class="white-color" style="font-size: 0.9rem; margin-left: 60px;">Latest Release</h3>
+        <h3 class="white-color" style="position: fixed; margin-top: -30px;">Latest Release</h3>
 
-          <div class="lat-release">
+        <div class="lat-release">
 
-            <%for (s of songs) {%>
-            <div class="song-queue">
-              <div class="song">
-                <div class="song-photo">
-                  <a>
-                    <figure>
-                      <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
-                        alt="saturday_nights" class="queue-image">
-                    </figure>
-                  </a>
-                </div>
-                <div class="songnm white-color">
-                  <%=s.name%><br>04/01/2020
-                </div>
+          <%for (s of songs) {%>
+          <div class="song-queue">
+            <div class="song">
+              <div class="song-photo">
+                <a>
+                  <figure>
+                    <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
+                      alt="saturday_nights" class="queue-image">
+                  </figure>
+                </a>
               </div>
-              <div class="">
-                <div class="dropdown" style="float:left;">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">options
-                    <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="#">Play</a></li>
-                    <li><a tabindex="-1" href="/queue/add?song=<%=s.name%>">Add to queue</a></li>
-                    <li class="dropdown-submenu">
-                      <a class="test" tabindex="-1" href="#">Add to playlist <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <!-- Trigger/Open The Modal -->
-                          <button id="myBtn">Create playlist</button>
+              <div class="songnm white-color">
+                <%=s.name%><br>04/01/2020
+              </div>
+            </div>
+            <div class="">
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">options
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="#">Play</a></li>
+                  <li><a tabindex="-1" href="/queue/add?song=<%=s.name%>">Add to queue</a></li>
+                  <li><a tabindex="-1" href="/mark-favorite?song=<%=s.name%>">Add to favorites</a></li>
+                  <li class="dropdown-submenu">
+                    <a class="test" tabindex="-1" href="#">Add to playlist <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <!-- Trigger/Open The Modal -->
+                        <button id="myBtn">Create playlist</button>
 
-                        </li>
-                        <li>
-                          <%for (p of playlists) {%>
-                          <a tabindex="-1" href="/playlists/add?playlist=<%=p.name%>&song=<%=s.name%>"><%= p.name %></a>
-                          <%}%>
+                      </li>
+                      <li>
+                        <%for (p of playlists) {%>
+                        <a tabindex="-1" href="/playlists/add?playlist=<%=p.name%>&song=<%=s.name%>"><%= p.name %></a>
+                        <%}%>
                         </li>
                         <!-- <li class="dropdown-submenu">
                           <a class="test" href="#">Add to playlist <span class="caret"></span></a>
@@ -108,72 +115,146 @@
                   </ul>
                 </div>
                 <br>
-                <span class="timespan">4:05</span>
+                <div class="like white-color">
+                  <a href="/mark-favorite?song=<%=s.name%>"><i class="far fa-heart"></i></a>
+              </div>
+              <span class="timespan">4:05</span>
+            </div>
+          </div>
+          <%}%>
+              </div>
+
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <form action="/playlists/create-playlist" method="POST">
+                  <span class="close">&times;</span>
+                  <input type="text" placeholder="enter playlist name" class="playlist-input" name="name"></input>
+                  <button type="submit" class="playlistBtn">submit</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right white-color">
+      <div class="song-list">
+        <div class="queue-head white-color">
+          <div class="">
+            Queue
+          </div>
+          <div class="queue-head white-color">
+            <div class="dropdown" style="float:right;">
+              <button class="dropbtn">Queue &nbsp; &nbsp; &nbsp;></button>
+              <div class="dropdown-content">
+                <a href="#">playlists</a>
+                <a href="#">Favourite Songs</a>
               </div>
             </div>
-            <%}%>
-                </div>
+          </div>
+        </div>
+        <div class="song-queue">
+          <div class="song">
+            <div class="song-number">
+              01
+            </div>
+            <div class="song-photo">
+              <a>
+                <figure>
+                  <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg" alt="saturday_nights"
+                    class="queue-image">
+                </figure>
+              </a>
+            </div>
+            <div class="songnm">
+              Saturday_nights<br>Khalid
+            </div>
+          </div>
+          <div class="like">
+            <a href="/mark-favorite"><i class="far fa-heart"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="footer" style="background-color:#242526;">
+      <div class="player-content">
+        <div class="song-queue foot">
+          <div class="song">
+            <div class="song-photo">
+              <a>
+                <figure>
+                  <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg" alt="saturday_nights"
+                    class="queue-image">
+                </figure>
+              </a>
+            </div>
+            <div class="songnm white-color">
+              Saturday_nights<br>04/01/2020
+            </div>
+          </div>
+          <div class="like white-color">
+            <i class="far fa-heart"></i>
+          </div>
+          <div class="like white-color">
+            <i class="fas fa-redo-alt"></i>
+          </div>
+          <div class="centre-player">
+            <div class="play">
+              <div class="btn white-color">
+                <i class="fas fa-random"></i>
               </div>
-              </ <!-- The Modal -->
-              <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content">
-                  <form action="/playlists/create-playlist" method="POST">
-                    <span class="close">&times;</span>
-                    <input type="text" placeholder="enter playlist name" class="playlist-input" name="name"></input>
-                    <button type="submit" class="playlistBtn">submit</button>
-                  </form>
-                </div>
-
+              <div class="btn white-color">
+                <i class="fas fa-step-backward"></i>
               </div>
-
-              <div class="right white-color">
-                <div class="song-list">
-                  <div class="queue-head white-color">
-                    <div class="">
-                      Queue
-                    </div>
-                    <div class="queue-head white-color">
-                      <div class="dropdown" style="float:right;">
-                        <button class="dropbtn">Queue &nbsp; &nbsp; &nbsp;></button>
-                        <div class="dropdown-content">
-                          <a href="#">playlists</a>
-                          <a href="#">Favourite Songs</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="song-queue">
-                    <div class="song">
-                      <div class="song-number">
-                        01
-                      </div>
-                      <div class="song-photo">
-                        <a>
-                          <figure>
-                            <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
-                              alt="saturday_nights" class="queue-image">
-                          </figure>
-                        </a>
-                      </div>
-                      <div class="songnm">
-                        Saturday_nights<br>Khalid
-                      </div>
-                    </div>
-                    <div class="like">
-                      <i class="far fa-heart"></i>
-                    </div>
-                  </div>
-                </div>
+              <div class="btn white-color">
+                <i class="far fa-pause-circle"></i>
               </div>
+              <div class="btn white-color">
+                <i class="fas fa-step-forward"></i>
+              </div>
+              <div class="btn white-color">
+                <i class="fas fa-redo"></i>
+              </div>
+            </div>
+            <div id="bar">
+              <audio id="audio" controls>
+                <source src="horse.ogg" type="audio/ogg">
+                <source
+                  src="/Users/1709abhishek/Desktop/Major_project/images/Khalid, Kane Brown - Saturday Nights REMIX (Official Video).mp3"
+                  type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+          <div class="side-controls">
+            <div class="white-color sides">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="white-color sides">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="white-color sides">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="white-color sides">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="white-color sides">
+              <i class="fas fa-desktop"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
 
 

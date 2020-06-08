@@ -12,17 +12,16 @@ body {
 }
 /* Style the header */
 .header {
-  grid-area: header;
+  /* grid-area: header; */
   /* background-color: #f1f1f1; */
   /* text-align: center; */
-  font-size: 35px;
+  /* font-size: 35px; */
   position: relative;
   margin-bottom: -20px;
   display: inline-block;
   vertical-align: center;
   position: fixed;
   width: 100%;
-  overflow-y: scroll;
 }
 
 .logo {
@@ -36,21 +35,21 @@ body {
   height: 70px;
   border-radius: 100%;
   position: absolute;
-  top: 15%;
+  top: 20px;
 }
 
 .linkColor {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 20px;
   /* text-align: center; */
   margin: 0 auto;
 }
 
 #logo-name {
-  position: absolute;
-  top: 10px;
-  left: 70px;
+  /* position: absolute; */
+  margin-top: 20px;
+  margin-left: 70px;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.8px;
@@ -59,7 +58,7 @@ body {
 .favorites {
   position: absolute;
   left: 170px;
-  top: 30%;
+  top: 30px;
 }
 
 .white-color {
@@ -90,8 +89,8 @@ body {
   border: 0px;
   position: absolute;
   width: 10rem;
-  top: 10px;
-  right: 240px;
+  top: 30px;
+  right: 290px;
   color: white;
   height: 20px;
   border: none;
@@ -99,30 +98,32 @@ body {
   transition: width 0.4s ease-in-out;
 }
 .searchBar input[type="text"]:focus{
-  width: 50%;
+  width: 130px;
 }
 
 #search {
   position: absolute;
-  top: 1px;
-  right: 405px;
+  top: 30px;
+  right: 430px;
+  
 }
+
 
 #record {
   position: absolute;
-  right: 220px;
-  top: 1px;
+  right: 250px;
+  top: 30px;
 }
 
 #noti {
   position: absolute;
-  top: 7px;
+  top: 15px;
   right: 80px;
 }
 
 #profile {
   position: absolute;
-  top: 7px;
+  top: 15px;
   right: 40px;
 }
 
@@ -135,13 +136,15 @@ body {
     'header header header header header header'
     'middle middle middle middle middle right'
     'footer footer footer footer footer footer';
+    grid-column-gap: 10px;
+    /* overflow-x: scroll; */
   /* grid-column-gap: 10px; - if you want gap between the columns */
 }
 
 .left,
 .middle,
 .right {
-  /* padding: 10px; */
+  padding: 30px;
   height: 500px;
   /* Should be removed. Only for demonstration */
 }
@@ -156,111 +159,12 @@ body {
   flex-direction: column;
   margin-top: 20px;
   margin-left: 40px;
+  overflow-y: scroll;
+  /* overflow-x: scroll; */
 }
 
 /* style the carousel menu */
-.carousel {
-  position: relative;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
-  margin-top: 26px;
-}
 
-.carousel-inner {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-.carousel-open:checked+.carousel-item {
-  position: static;
-  opacity: 100;
-}
-
-.carousel-item {
-  position: absolute;
-  opacity: 0;
-  -webkit-transition: opacity 0.6s ease-out;
-  transition: opacity 0.6s ease-out;
-}
-
-.carousel-item img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-.carousel-control {
-  background: rgba(0, 0, 0, 0.28);
-  border-radius: 50%;
-  color: #fff;
-  cursor: pointer;
-  display: none;
-  font-size: 40px;
-  height: 40px;
-  line-height: 35px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  cursor: pointer;
-  -ms-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  text-align: center;
-  width: 40px;
-  z-index: 10;
-}
-
-.carousel-control.prev {
-  left: 2%;
-}
-
-.carousel-control.next {
-  right: 2%;
-}
-
-.carousel-control:hover {
-  background: rgba(0, 0, 0, 0.8);
-  color: #aaaaaa;
-}
-
-#carousel-1:checked~.control-1,
-#carousel-2:checked~.control-2,
-#carousel-3:checked~.control-3 {
-  display: block;
-}
-
-.carousel-indicators {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 2%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 10;
-}
-
-.carousel-indicators li {
-  display: inline-block;
-  margin: 0 5px;
-}
-
-.carousel-bullet {
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size: 35px;
-}
-
-.carousel-bullet:hover {
-  color: #aaaaaa;
-}
-
-#carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
-#carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
-#carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
-  color: #428bca;
-}
 
 #title {
   width: 100%;
@@ -402,6 +306,10 @@ figcaption {
   width: 30vw;
   margin-left: 30px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 40px;
 }
 
 .song-list {
@@ -672,6 +580,30 @@ figcaption {
   animation-delay: 1s;
 }
 
+.lat-release{
+  margin-top: 10px;
+}
+
+.playlists{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60vw;
+  height: 50px;
+}
+
+.playl{
+  position: absolute;
+  left: 290px;
+  top: 30px;
+}
+
+.queue-list{
+  position: absolute;
+  margin-left: 400px;
+  top: 30px;
+}
+
 @keyframes bounceInUp {
   from,
   60%,
@@ -722,25 +654,26 @@ figcaption {
   /* justify-content: space-around; */
 }
 
+
 /* /bouncing animation */
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   .grid-container  {
     grid-template-areas:
       'header header header header header header'
       'middle middle middle right right right'
       'footer footer footer footer footer footer';
   }
-} */
+}
 
 @media screen and (max-width: 800px) {
-  .middle, .right {
+.header .middle, .right {
     width: 100vw;
     /* padding: 0; */
   }
 }
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   #logo-name {
     font-size: 15px;
     margin-top: 40px;
@@ -749,4 +682,4 @@ figcaption {
   .searchBar {
     margin: 100px;
   }
-}
+} */

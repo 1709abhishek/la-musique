@@ -14,5 +14,8 @@ router.use("/queue", require("./queue"));
 // router.use('/routerName', require('./routerfile));
 
 router.get('/fetch', homeController.fetch);
+router.get('/mark-favorite', homeController.mark);
+
+router.get('/showFavorite', homeController.showFavorite);
 
 module.exports = router;

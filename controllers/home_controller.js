@@ -1,5 +1,6 @@
 const request = require('request');
 const Song = require('../models/song');
+const User = require('../models/user');
 
 module.exports.home = function (req, res) {
   return res.render("home", {
@@ -48,4 +49,31 @@ module.exports.fetch = function (req, res) {
 
 }
 
-// module.exports.actionName = function(req, res){}
+module.exports.mark = async function (req, res) {
+  try {
+    console.log(req.user._id);
+    let user = await User.findOne({ _id: req.user._id });
+    let song = await Song.findOne({ name: req.query.song });
+    await song.favorites.push(req.user._id);
+    await user.songs.push(song.id);
+    await song.save();
+    await user.save();
+    return res.redirect('back');
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports.showFavorite = async function (req, res) {
+  try {
+    console.log(req.user._id);
+    let user = await User.findOne({ _id: req.user._id });
+    return res.render('favorite_songs', {
+      title: "favorite songs",
+      songs: user.songs
+    })
+  } catch (err) {
+    console.log(err);
+  }
+}
+

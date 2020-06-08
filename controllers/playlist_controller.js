@@ -26,3 +26,29 @@ module.exports.addSong = async function (req, res) {
         console.log("******", err);
     }
 }
+
+module.exports.show = async function (req, res) {
+    try {
+        var playlist = await Playlist.find({});
+        return res.render('user_playlist', {
+            title: "playlists",
+            playlist: playlist
+        })
+    } catch (err) {
+        console.log("******", err);
+        return res.redirect('back');
+    }
+}
+
+module.exports.showParticular = async function (req, res) {
+    try {
+        var playlist = await Playlist.findOne({ name: req.query.name });
+        return res.render('show_each_playlist', {
+            title: "playlists",
+            playlist: playlist.songs
+        })
+    } catch (err) {
+        console.log("******", err);
+        return res.redirect('back');
+    }
+}

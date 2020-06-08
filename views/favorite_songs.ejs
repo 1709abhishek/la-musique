@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styling.css">
+    <title>homepage</title>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="header">
+            <div class="logo">
+                <a href="/users/profile">
+                    <div><img src="/images/MusicLogo.jpg" alt="default" class="home">
+                    </div>
+                    <div class="white-color" id="logo-name">
+                        &nbsp;Ninjas<br>&nbsp;Studio
+                    </div>
+                </a>
+            </div>
+            <span class="favorites">
+                <a href="#" class="linkColor">Favorites</a>
+            </span>
+            <span class="playl">
+                <a href="/playlists/show" class="linkColor">Playlists</a>
+            </span>
+            <span class="queue-list">
+                <a href="/queue/showQueue" class="linkColor">Queue</a>
+            </span>
+            <div class="searching">
+                <div class="nav-icons" id="search"><a href="#"><i class="fas fa-search"></i></a></div>
+                <div class="searchBar">
+                    <input type="text" name="search" placeholder="search" class="w">
+                </div>
+                <div class="nav-icons" id="record"><a href="#"><i class="fas fa-microphone"></i></a></div>
+            </div>
+            <span class="nav-icons" id="noti">
+                <a href="#"><i id="noti" class="fas fa-bell"></i></a>
+            </span>
+            <span class="nav-icons" id="profile">
+                <a href=""><i id="profile" class="fas fa-user-circle"></i></a>
+            </span>
+        </div>
+
+
+        <div class="middle">
+
+            <div class="latest">
+
+                <h3 class="white-color" style="position: fixed; margin-top: -30px;">Songs</h3>
+
+                <div class="lat-release">
+
+                    <%for (p of songs) {%>
+                    <div class="song-queue">
+                        <div class="song">
+                            <div class="song-photo">
+                                <a>
+                                    <figure>
+                                        <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
+                                            alt="saturday_nights" class="queue-image">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="songnm white-color">
+                                <%=p.name%><br>04/01/2020
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="dropdown" style="float:left;">
+                                <button class="btn btn-default dropdown-toggle" type="button"
+                                    data-toggle="dropdown">options
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a tabindex="-1" href="#">Play</a></li>
+
+
+                                </ul>
+                            </div>
+                            <br>
+                            <span class="timespan">4:05</span>
+                        </div>
+                    </div>
+                    <%}%>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+</body>
+
+</html>

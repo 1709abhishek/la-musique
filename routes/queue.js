@@ -8,6 +8,6 @@ console.log("router loaded");
 
 router.get("/add", queueController.addToQueue);
 
-
+router.get("/showQueue", queueController.showQueue);
 
 module.exports = router;

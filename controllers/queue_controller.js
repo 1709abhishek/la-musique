@@ -12,3 +12,15 @@ module.exports.addToQueue = async function (req, res) {
 
     }
 }
+
+module.exports.showQueue = async function (req, res) {
+    try {
+        var queue = await Queue.findOne({ user: req.user._id });
+        return res.render('show_queue', {
+            title: "queue",
+            queue: queue.songs
+        })
+    } catch (err) {
+
+    }
+}
