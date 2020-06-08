@@ -83,3 +83,16 @@ module.exports.showFavorite = async function (req, res) {
   }
 }
 
+module.exports.showFavoriteArtist = async function (req, res) {
+  try {
+    console.log(req.user._id);
+    let user = await User.findOne({ _id: req.user._id });
+    return res.render('favorite_artist', {
+      title: "favorite artists",
+      artists: user.artists
+    })
+  } catch (err) {
+    console.log(err);
+  }
+}
+

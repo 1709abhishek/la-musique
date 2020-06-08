@@ -19,4 +19,6 @@ router.get('/mark-favorite', homeController.mark);
 
 router.get('/showFavorite', homeController.showFavorite);
 
+router.get('/showFavoriteArtist', homeController.showFavoriteArtist);
+
 module.exports = router;
