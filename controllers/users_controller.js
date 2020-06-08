@@ -29,8 +29,9 @@ module.exports.signUp = function (req, res) {
 };
 
 // render the sign in page
-module.exports.signIn = function (req, res) {
+module.exports.signIn = async function (req, res) {
   // if (!req.recaptcha.error) {
+
   if (req.isAuthenticated()) {
     return res.redirect("./profile");
   }
@@ -68,9 +69,7 @@ module.exports.create = function (req, res) {
       newUser.name = req.body.name;
       newUser.password = newUser.generateHash(req.body.password);
 
-      // making a queue for each user at the time of creating the user.
-      var queue = new Queue();
-      queue.user = newUser.id;
+
 
       User.create(newUser, function (err, user) {
         if (err) {
@@ -89,8 +88,13 @@ module.exports.create = function (req, res) {
 };
 
 // sign in and create a session for the user
-module.exports.createSession = function (req, res) {
+module.exports.createSession = async function (req, res) {
+  // making a queue for each user at the time of creating the user.
+  var queue = await new Queue();
+  queue.user = req.user._id;
+  queue.save();
   console.log(req.user._id);
+
   return res.redirect("./profile");
 };
 

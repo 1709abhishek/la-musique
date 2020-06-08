@@ -604,6 +604,12 @@ figcaption {
   top: 30px;
 }
 
+.preferences-list{
+  position: absolute;
+  margin-left: 490px;
+  top: 30px;
+}
+
 @keyframes bounceInUp {
   from,
   60%,

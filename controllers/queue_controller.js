@@ -21,6 +21,6 @@ module.exports.showQueue = async function (req, res) {
             queue: queue.songs
         })
     } catch (err) {
-
+        console.log(err);
     }
 }

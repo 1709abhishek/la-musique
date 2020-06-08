@@ -27,13 +27,25 @@
                 </a>
             </div>
             <span class="favorites">
-                <a href="#" class="linkColor">Favorites</a>
+                <!-- <a href="/showFavorite" class="linkColor">Favorites</a> -->
+                <div class="dropdown" style="float:left;">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Favorites
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="/showFavorite">Songs</a></li>
+                        <li><a tabindex="-1" href="/showFavoriteArtist">Artists</a></li>
+                    </ul>
+                </div>
+            </span>
             </span>
             <span class="playl">
                 <a href="/playlists/show" class="linkColor">Playlists</a>
             </span>
             <span class="queue-list">
                 <a href="/queue/showQueue" class="linkColor">Queue</a>
+            </span>
+            <span class="preferences-list">
+                <a href="/genre/fetch" class="linkColor">Genre</a>
             </span>
             <div class="searching">
                 <div class="nav-icons" id="search"><a href="#"><i class="fas fa-search"></i></a></div>

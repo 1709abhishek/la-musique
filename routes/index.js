@@ -10,6 +10,7 @@ router.use("/users", require("./users"));
 router.use("/playlists", require("./playlists"));
 router.use("/queue", require("./queue"));
 router.use("/artist", require("./artist"));
+router.use("/genre", require("./genre"));
 
 // for any further routes, access from here
 // router.use('/routerName', require('./routerfile));

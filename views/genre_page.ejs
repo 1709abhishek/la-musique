@@ -65,48 +65,27 @@
 
         <div class="middle">
 
-            <div class="latest">
-
-                <h3 class="white-color" style="position: fixed; margin-top: -30px;">Songs</h3>
-
-                <div class="lat-release">
-
-                    <%for (p of queue) {%>
-                    <div class="song-queue">
-                        <div class="song">
-                            <div class="song-photo">
-                                <a>
-                                    <figure>
-                                        <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
-                                            alt="saturday_nights" class="queue-image">
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="songnm white-color">
-                                <%=p.name%><br>04/01/2020
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="dropdown" style="float:left;">
-                                <button class="btn btn-default dropdown-toggle" type="button"
-                                    data-toggle="dropdown">options
-                                    <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li><a tabindex="-1" href="#">Play</a></li>
-
-
-                                </ul>
-                            </div>
-                            <br>
-                            <span class="timespan">4:05</span>
-                        </div>
+            <h3 class="white-color">Genre page</h3>
+            <form action="/genre/store" method="POST">
+                <%for(genre of genres){%>
+                <div class="playlists">
+                    <div>
+                        <input type="checkbox" value="<%=genre.name%>" name="tag[]">
                     </div>
-                    <%}%>
+                    <div>
+                        <span class="white-color"><%=genre.name%></span>
+                    </div>
+                    <div>
+                        <span class="white-color"><%=genre.reach%></span>
+                    </div>
+                    <div class="like white-color">
+                        <a href=""><i class="far fa-heart"></i></a>
+                    </div>
                 </div>
-                </div>
-                </div>
-                </div>
-                
+                <%}%>
+            <button type="submit">submit</button>
+            </form>
+        </div>
 </body>
 
 </html>

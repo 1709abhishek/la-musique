@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Artist'
       }
+    ],
+    genre: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Genre'
+      }
     ]
   },
   {
