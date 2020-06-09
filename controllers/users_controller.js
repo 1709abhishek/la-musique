@@ -128,7 +128,6 @@ module.exports.update = function (req, res) {
       }
       console.log("done updating");
       console.log("*****", req.body.email);
-      newMailer.newMail(req.body);
       return res.redirect('./sign-in');
     })
   });
@@ -158,6 +157,18 @@ module.exports.forgotPassword = async function (req, res) {
     return res.redirect('./sign-in');
   } catch (err) {
     console.log('********', err);
+  }
+}
+
+module.exports.showDetails = async function (req, res) {
+  try {
+    let user = await User.findOne({ _id: req.user._id });
+    return res.render('user_details', {
+      title: "user details",
+      user: user
+    })
+  } catch (err) {
+    console.log(err);
   }
 }
 

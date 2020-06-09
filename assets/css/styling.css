@@ -155,12 +155,13 @@ body {
 /* Style the middle column */
 .middle {
   grid-area: middle;
-  width: 70vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin-left: 40px;
+  margin-top: -20px;
+  /* margin-left: 40px; */
   overflow-y: scroll;
+  padding: 80px;
   /* overflow-x: scroll; */
 }
 
@@ -450,6 +451,7 @@ figcaption {
   /* padding: 10px; */
   text-align: center;
   /* min-width: 100%; */
+  font-size: 20px;
 }
 
 .foot {
@@ -467,6 +469,8 @@ figcaption {
 .player-content {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 30px;
 }
 
 .play {
@@ -481,6 +485,7 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   margin-top: 5px;
+  margin-left: 100px;
 }
 
 .btn {
@@ -492,10 +497,12 @@ figcaption {
 .side-controls {
   display: flex;
   flex-direction: row;
+  margin-left: 250px;
 }
 
 .sides {
   margin-left: 10px;
+  font-size: 20px;
 }
 
 /* homepage2 styling */
@@ -613,6 +620,10 @@ figcaption {
 
 .inc{
   font-size: 12px;
+}
+
+.increase{
+  font-size: 30px;
 }
 
 @keyframes bounceInUp {

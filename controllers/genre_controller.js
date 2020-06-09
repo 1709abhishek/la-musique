@@ -27,12 +27,12 @@ module.exports.fetch = async function (req, res) {
             }
             var genres = await Tag.find({});
             var user = await User.findOne({ _id: req.user._id });
-            var userGen = await user.populate({ path: 'genre' }).execPopulate();
-            console.log(userGen);
+            // var userGen = await user.populate({ path: 'genre' }).execPopulate();
+            console.log(user.genre);
             return res.render('genre_page', {
                 title: "Genre page",
                 genres: genres,
-                userGen: userGen.genre
+                // userGen: userGen.genre
             })
         });
     } catch (err) {
@@ -44,9 +44,10 @@ module.exports.storeGenre = async function (req, res) {
     try {
         let user = await User.findOne({ _id: req.user._id });
         let x = req.body.tag;
+        console.log(x);
         for (var i = 0; i < x.length; i++) {
             let gen = await Tag({ name: x[i] });
-            user.genre.push(gen.id);
+            user.genre.push(gen);
         }
         user.save();
         return res.redirect('back');
