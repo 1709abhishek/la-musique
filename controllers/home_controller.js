@@ -1,6 +1,7 @@
 const request = require('request');
 const Song = require('../models/song');
 const User = require('../models/user');
+const Artist = require('../models/artist');
 
 module.exports.home = function (req, res) {
   return res.render("home", {
@@ -79,9 +80,10 @@ module.exports.showFavorite = async function (req, res) {
   try {
     console.log(req.user._id);
     let user = await User.findOne({ _id: req.user._id });
+    let songs = await user.populate({ path: 'songs' }).execPopulate();
     return res.render('favorite_songs', {
       title: "favorite songs",
-      songs: user.songs
+      songs: songs.songs
     })
   } catch (err) {
     console.log(err);
@@ -92,9 +94,11 @@ module.exports.showFavoriteArtist = async function (req, res) {
   try {
     console.log(req.user._id);
     let user = await User.findOne({ _id: req.user._id });
+    let artists = await user.populate({ path: 'artists' }).execPopulate();
+    console.log(artists);
     return res.render('favorite_artist', {
       title: "favorite artists",
-      artists: user.artists
+      artists: artists.artists
     })
   } catch (err) {
     console.log(err);

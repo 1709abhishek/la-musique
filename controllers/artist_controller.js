@@ -44,6 +44,11 @@ module.exports.markArtist = async function (req, res) {
         await user.artists.push(artist.id);
         await artist.save();
         await user.save();
+        if (req.xhr) {
+            return res.json(200, {
+                message: "Added to queue"
+            })
+        }
         return res.redirect('back');
     } catch (err) {
         console.log(err);

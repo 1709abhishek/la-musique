@@ -64,25 +64,39 @@
 
 
         <div class="middle">
+            <%for(userG of userGen){%>
+            <div class="playlists">
 
+                <div>
+                    <span class="white-color"><%=userG.name%></span>
+                </div>
+                <div>
+                    <span class="white-color"><%=userG.reach%></span>
+                </div>
+                <div class="like white-color">
+                    <a href=""><i class="far fa-heart"></i></a>
+                </div>
+            </div>
+            <%}%>
             <h3 class="white-color">Genre page</h3>
             <form action="/genre/store" method="POST">
+                
                 <%for(genre of genres){%>
-                <div class="playlists">
-                    <div>
-                        <input type="checkbox" value="<%=genre.name%>" name="tag[]">
-                    </div>
-                    <div>
-                        <span class="white-color"><%=genre.name%></span>
-                    </div>
-                    <div>
-                        <span class="white-color"><%=genre.reach%></span>
-                    </div>
-                    <div class="like white-color">
-                        <a href=""><i class="far fa-heart"></i></a>
-                    </div>
+            <div class="playlists">
+                <div>
+                    <input type="checkbox" value="<%=genre.name%>" name="tag[]">
                 </div>
-                <%}%>
+                <div>
+                    <span class="white-color"><%=genre.name%></span>
+                </div>
+                <div>
+                    <span class="white-color"><%=genre.reach%></span>
+                </div>
+                <div class="like white-color">
+                    <a href=""><i class="far fa-heart"></i></a>
+                </div>
+            </div>
+            <%}%>
             <button type="submit">submit</button>
             </form>
         </div>

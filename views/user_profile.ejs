@@ -89,12 +89,13 @@
                   </figure>
                 </a>
               </div>
-              <div class="songnm white-color">
-                <%=s.name%><br>04/01/2020<br>
+              <div class="songnm white-color inc">
+                <%=s.name%><br>plays: <%=s.playcount%>
+                <div class="songnm white-color">
+                  <a href="/artist/info?name=<%=s.artist%>" class="inc"><%=s.artist%></a>
+                </div>
               </div>
-              <div class="songnm white-color">
-                <a href="/artist/info?name=<%=s.artist%>"><%=s.artist%></a><br>
-              </div>
+
             </div>
             <div class="">
               <div class="dropdown" style="float:left;">

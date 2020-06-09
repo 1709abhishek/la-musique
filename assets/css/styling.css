@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
   background-image: linear-gradient(to bottom, #121e3d 0%, #000 100%);
+  font-size: large;
 }
 
 /* innovation using a google font family */
@@ -608,6 +609,10 @@ figcaption {
   position: absolute;
   margin-left: 490px;
   top: 30px;
+}
+
+.inc{
+  font-size: 12px;
 }
 
 @keyframes bounceInUp {

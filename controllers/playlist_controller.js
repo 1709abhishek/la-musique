@@ -43,9 +43,10 @@ module.exports.show = async function (req, res) {
 module.exports.showParticular = async function (req, res) {
     try {
         var playlist = await Playlist.findOne({ name: req.query.name });
+        let songs = await playlist.populate({ path: 'songs' }).execPopulate();
         return res.render('show_each_playlist', {
             title: "playlists",
-            playlist: playlist.songs
+            playlist: songs.songs
         })
     } catch (err) {
         console.log("******", err);

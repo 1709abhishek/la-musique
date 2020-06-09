@@ -50,6 +50,23 @@
         });
     }
 
+    let addArtist = function () {
+        // method to submit the form data for new post using AJAX
+        $(document).on('click', '.markArtist', function (e) {
+            //your code goes here
+            e.preventDefault();
+            $.ajax({
+                type: 'get',
+                url: $(this).attr('href'),
+                success: function (data) {
+                    console.log("success");
+                }, error: function (error) {
+                    console.log(error.responseText);
+                }
+            });
+        });
+    }
+
 
     // newPostForm.submit(function(e){
     //     e.preventDefault();
@@ -72,4 +89,5 @@
     addToQueue();
     addToFavoriteSongs();
     addToPlaylist();
+    addArtist();
 }

@@ -26,9 +26,13 @@ module.exports.fetch = async function (req, res) {
                 }
             }
             var genres = await Tag.find({});
+            var user = await User.findOne({ _id: req.user._id });
+            var userGen = await user.populate({ path: 'genre' }).execPopulate();
+            console.log(userGen);
             return res.render('genre_page', {
                 title: "Genre page",
-                genres: genres
+                genres: genres,
+                userGen: userGen.genre
             })
         });
     } catch (err) {

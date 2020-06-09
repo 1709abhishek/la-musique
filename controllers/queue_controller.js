@@ -21,9 +21,10 @@ module.exports.addToQueue = async function (req, res) {
 module.exports.showQueue = async function (req, res) {
     try {
         var queue = await Queue.findOne({ user: req.user._id });
+        let songs = await queue.populate({ path: 'songs' }).execPopulate();
         return res.render('show_queue', {
             title: "queue",
-            queue: queue.songs
+            queue: songs.songs
         })
     } catch (err) {
         console.log(err);
