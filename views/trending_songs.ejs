@@ -68,48 +68,26 @@
 
         <div class="middle">
 
-            <div class="latest">
+            <h3 class="white-color">Trending Songs page</h3>
 
-                <h3 class="white-color" style="position: fixed; margin-top: -30px;">Songs</h3>
+            <%for(s of songs){%>
 
-                <div class="lat-release">
-
-                    <%for (p of songs) {%>
-                    <div class="song-queue">
-                        <div class="song">
-                            <div class="song-photo">
-                                <a>
-                                    <figure>
-                                        <img src="/Users/1709abhishek/Desktop/Major_project/images/saturday_nights.jpg"
-                                            alt="saturday_nights" class="queue-image">
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="songnm white-color">
-                                <%=p.name%><br>plays: <%=p.playcount%>
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="dropdown" style="float:left;">
-                                <button class="btn btn-default dropdown-toggle" type="button"
-                                    data-toggle="dropdown">options
-                                    <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li><a tabindex="-1" href="#">Play</a></li>
-
-
-                                </ul>
-                            </div>
-                            <br>
-                            <span class="timespan">4:05</span>
-                        </div>
-                    </div>
-                    <%}%>
+            <div class="playlists">
+                <div>
+                    <span class="white-color"><%=s.name%></span>
                 </div>
+                <div>
+                    <span class="white-color"><%=s.playcount%></span>
                 </div>
+                <div>
+                    <span class="white-color"><%=s.favorites.length%></span>
                 </div>
-                </div>
-                
+
+            </div>
+            <%}%>
+        </div>
 </body>
+
+<script src="/js/control.js"></script>
 
 </html>

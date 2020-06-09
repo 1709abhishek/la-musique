@@ -22,4 +22,6 @@ router.get('/showFavorite', homeController.showFavorite);
 
 router.get('/showFavoriteArtist', homeController.showFavoriteArtist);
 
+router.get('/trending', homeController.showTrending);
+
 module.exports = router;

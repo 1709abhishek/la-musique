@@ -626,6 +626,12 @@ figcaption {
   font-size: 30px;
 }
 
+.trending-list{
+  position: absolute;
+  margin-left: 570px;
+  top: 30px;
+}
+
 @keyframes bounceInUp {
   from,
   60%,

@@ -139,3 +139,15 @@ module.exports.search = async function (req, res) {
   }
 }
 
+module.exports.showTrending = async function (req, res) {
+  try {
+    let songs = await Song.find({}).sort({ 'favorites.length': -1 }).limit(5);
+    return res.render('trending_songs', {
+      title: "trending songs",
+      songs: songs
+    })
+  } catch (err) {
+
+  }
+}
+
