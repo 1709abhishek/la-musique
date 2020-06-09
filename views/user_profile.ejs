@@ -46,18 +46,25 @@
         </div>
       </span>
       </span>
-      <span class="playl">
-        <a href="/playlists/show" class="linkColor">Playlists</a>
-      </span>
-      <span class="queue-list">
-        <a href="/queue/showQueue" class="linkColor">Queue</a>
-      </span>
-      <span class="preferences-list">
-        <a href="/genre/fetch" class="linkColor">Genre</a>
-      </span>
-      <span class="trending-list">
-        <a href="/trending" class="linkColor">Trending</a>
-      </span>
+      <div class="topnav" id="myTopnav">
+        <span class="playl">
+          <a href="/playlists/show" class="linkColor">Playlists</a>
+        </span>
+        <span class="queue-list">
+          <a href="/queue/showQueue" class="linkColor">Queue</a>
+        </span>
+        <span class="preferences-list">
+          <a href="/genre/fetch" class="linkColor">Genre</a>
+        </span>
+        <span class="trending-list">
+          <a href="/trending" class="linkColor">Trending</a>
+        </span>
+        <span class="bars-list">
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </span>
+      </div>
       <div class="searching">
         <div class="nav-icons" id="search"><a href="#"><i class="fas fa-search"></i></a></div>
         <div class="searchBar">
@@ -71,6 +78,7 @@
       <span class="nav-icons" id="profile">
         <a href="/users/user-details"><i id="profile" class="fas fa-user-circle"></i></a>
       </span>
+
     </div>
 
 
@@ -314,7 +322,16 @@
     }
   </script>
   <script src="/js/control.js"></script>
-
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
 
 </body>
 
