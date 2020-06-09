@@ -7,6 +7,11 @@ module.exports.addToQueue = async function (req, res) {
         var song = await Song.findOne({ name: req.query.song });
         queue.songs.push(song.id);
         queue.save();
+        if (req.xhr) {
+            return res.json(200, {
+                message: "Added to queue"
+            })
+        }
         return res.redirect('back');
     } catch (err) {
 

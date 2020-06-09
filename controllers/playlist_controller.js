@@ -29,7 +29,7 @@ module.exports.addSong = async function (req, res) {
 
 module.exports.show = async function (req, res) {
     try {
-        var playlist = await Playlist.find({});
+        var playlist = await Playlist.find({ user: req.user._id });
         return res.render('user_playlist', {
             title: "playlists",
             playlist: playlist

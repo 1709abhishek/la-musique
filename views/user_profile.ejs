@@ -102,8 +102,9 @@
                   <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><a tabindex="-1" href="#">Play</a></li>
-                  <li><a tabindex="-1" href="/queue/add?song=<%=s.name%>">Add to queue</a></li>
-                  <li><a tabindex="-1" href="/mark-favorite?song=<%=s.name%>">Add to favorites</a></li>
+                  <li><a tabindex="-1" href="/queue/add?song=<%=s.name%>" class="addQueue">Add to queue</a></li>
+                  <li><a tabindex="-1" href="/mark-favorite?song=<%=s.name%>" class="addSongFav">Add to favorites</a>
+                  </li>
                   <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="#">Add to playlist <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -114,7 +115,8 @@
                       </li>
                       <li>
                         <%for (p of playlists) {%>
-                        <a tabindex="-1" href="/playlists/add?playlist=<%=p.name%>&song=<%=s.name%>"><%= p.name %></a>
+                        <a tabindex="-1" href="/playlists/add?playlist=<%=p.name%>&song=<%=s.name%>"
+                          class="addToPlaylist"><%= p.name %></a>
                         <%}%>
                         </li>
                         <!-- <li class="dropdown-submenu">
@@ -130,7 +132,7 @@
                 </div>
                 <br>
                 <div class="like white-color">
-                  <a href="/mark-favorite?song=<%=s.name%>"><i class="far fa-heart"></i></a>
+                  <a href="/mark-favorite?song=<%=s.name%>" class="addSongFav"><i class="far fa-heart"></i></a>
               </div>
               <span class="timespan">4:05</span>
             </div>
@@ -307,6 +309,7 @@
       }
     }
   </script>
+  <script src="/js/control.js"></script>
 
 
 </body>
