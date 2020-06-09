@@ -20,13 +20,27 @@
                     <div class="hide-md-lg">
                         <p>Or sign in manually:</p>
                     </div> -->
-
-                <input type="text" name="name" placeholder="Username" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-                <input type="submit" value="Login">
-                <!-- </div> -->
+                <div class="vl">
+                    <span class="vl-innertext">or</span>
+                </div>
+                <div class="col">
+                    <a href="/users/sign-in/github" class="git btn">
+                        <i class="fa fa-github fa-fw"></i> Login with Github
+                    </a>
+                    <a href="/users/sign-in/google" class="google btn"><i class="fa fa-google fa-fw">
+                        </i> Login with Google
+                    </a>
+                </div>
+                <div class="col">
+                    <div class="hide-md-lg">
+                        <p>Or sign in manually:</p>
+                    </div>
+                    <input type="text" name="name" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <input type="submit" value="Login">
+                </div>
 
             </div>
         </form>

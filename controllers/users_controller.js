@@ -95,7 +95,7 @@ module.exports.createSession = async function (req, res) {
   queue.save();
   console.log(req.user._id);
 
-  return res.redirect("./profile");
+  return res.redirect("/users/profile");
 };
 
 module.exports.destroySession = function (req, res) {

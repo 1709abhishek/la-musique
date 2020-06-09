@@ -29,5 +29,11 @@ router.get("/reset-password", usersController.resetPass);
 
 router.post('/update', usersController.update);
 
+router.get('/sign-in/github', passport.authenticate('github', { scope: ['user:email'] }));
+router.get('/sign-in/github/callback', passport.authenticate('github', { failureRedirect: '/users/sign-in' }), usersController.createSession);
+
+
+router.get('/sign-in/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/sign-in/google/callback', passport.authenticate('google', { failureRedirect: '/users/sign-in' }), usersController.createSession);
 
 module.exports = router;
