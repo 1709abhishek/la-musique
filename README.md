@@ -40,3 +40,5 @@ an app where user can sign-up, sign-in, fetch music mark favorite artists, songs
 ---- added google login used apis (can be counted as innovation, although i was making search bar, left some code due to time constraint)
 ---- wamt to make search work and add debouncing and throttling concept
 ---- added ajax also if that counts
+
+
