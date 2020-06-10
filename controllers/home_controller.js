@@ -120,17 +120,10 @@ module.exports.search = async function (req, res) {
 
       for (var i = 0; i < tra.results.trackmatches.track.length; i++) {
         var artist = tra.results.trackmatches.track[i];
-        var new_artist = await new Artist();
-        var ispresent = await Artist.findOne({ name: artist.name });
-        if (!ispresent) {
-          new_artist.name = artist.name;
-          new_artist.url = artist.url;
-          await new_artist.save();
-        }
-        var artist = await Artist.findOne({ name: req.query.name });
-        return res.render('artist_page', {
+
+        return res.render('', {
           title: "artist page",
-          artist: artist
+          tracks: tra.results.trackmatches.track
         })
       }
     });
