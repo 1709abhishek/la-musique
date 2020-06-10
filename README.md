@@ -1,5 +1,5 @@
 # la-musique -- Music full stack app
-an API where anyone can create questions with options and also add votes to it.
+an app where user can sign-up, sign-in, fetch music mark favorite artists, songs, create playlists and more!
 
 # dependencies used
 
@@ -26,12 +26,7 @@ an API where anyone can create questions with options and also add votes to it.
 21. unirest
 
 # Routes
-1. /questions/create → To create a question
-2. /questions/:id/options/create → To add options to a specific question
-3. /questions/:id/delete -> To delete a question
-4. /options/:id/delete -> To delete an option
-5. /options/:id/add_vote → To increment the count of votes
-6. /questions/:id -> To view a question and it's options
+
 
 # setup
 1. clone https://github.com/1709abhishek/la-musique
@@ -39,3 +34,9 @@ an API where anyone can create questions with options and also add votes to it.
 3. run nodemon index.js
 4. open postman and visit api routes
 5. sign-in,sign-up,google,github auth,sign-out,playlists,queues,add favorites, save preferences, show trending.
+
+# features added 
+---- made apis for frontend
+---- added google login used apis (can be counted as innovation, although i was making search bar, left some code due to time constraint)
+---- wamt to make search work and add debouncing and throttling concept
+---- added ajax also if that counts
