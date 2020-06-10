@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/la_musique_development");
+
+
+mongoose.connect("mongodb+srv://kamikaze:1709abhishek@cluster0-jfx1c.mongodb.net/<dbname>?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 
